@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevJobs - Resultados de búsqueda</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body id="search-results">
+    <header>
+        <h1>DevJobs</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="search.html">Empleos</a>
+        </nav>
+        <div>
+            <a href="">Publicar un empleo</a>
+            <a href="">Iniciar sesión</a>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Encuentra tu próximo trabajo</h2>
+            <p>Explora miles de oportunidades en el sector tecnológico</p>
+            <form role="search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" />
+                </svg>
+                <input required type="text" placeholder="Buscar empleos por título, habilidad o empresa">
+                <button type="submit">Tecnología <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M6 9l6 6l6 -6" />
+                    </svg></button>
+                <button type="submit">Ubicación <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M6 9l6 6l6 -6" />
+                    </svg></button>
+                <button type="submit">Tipo de contrato <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M6 9l6 6l6 -6" />
+                    </svg></button>
+                <button type="submit">Nivel de experiencia <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                        stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M6 9l6 6l6 -6" />
+                    </svg></button>
+            </form>
+        </section>
+        <section>
+            <header>
+                <h2>Resultados de búsqueda </h2>
+            </header>
+            <div>
+                <article>
+                    <h3 class="jobTible">Ingeniero de Software</h3>
+                    <p class="jobCompany">Tech Solutions Inc. | Remoto</p>
+                    <a href="" class="jobApplybtn">Aplicar</a>
+                    <p class="jobDescription">Buscamos un ingeniero de software con experiencia en desarrollo web y
+                        conocimientos en
+                        JavaScript,
+                        React y
+                        Node.js. El
+                        candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.
+                    </p>
+                </article>
+                <article>
+                    <h3 class="jobTible">Analista de Datos</h3>
+                    <p class="jobCompany">Data Driven Co. | Ciudad de México</p>
+                    <a href="" class="jobApplybtn">Aplicar</a>
+                    <p class="jobDescription">Estamos buscando un analista de datos con experiencia en el manejo de
+                        grandes conjuntos de datos y herramientas de
+                        visualización. Se requiere conocimiento en SQL, Python y R. </p>
+                </article>
+                <article>
+                    <h3 class="jobTible">Desarrollador de Aplicaciones Móviles</h3>
+                    <p class="jobCompany">Mobile Apps Ltd. | Guadalajara</p>
+                    <a href="" class="jobApplybtn">Aplicar</a>
+                    <p class="jobDescription">Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS
+                        y/o Android. El candidato debe tener
+                        conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.</p>
+                </article>
+                <article>
+                    <h3 class="jobTible">Ingeniero de DevOps</h3>
+                    <p class="jobCompany">Cloud Services SA | Remoto</p>
+                    <a href="" class="jobApplybtn">Aplicar</a>
+                    <p class="jobDescription">Estamos buscando un ingeniero de DevOps con experiencia en la gestión de
+                        infraestructuras en la nube, automatización de
+                        procesos y herramientas de integración continua. Se requiere conocimiento en AWS, Azure o GCP.
+                    </p>
+                </article>
+            </div>
+            <!-- Más resultados de búsqueda -->
+            <footer>
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 6l-6 6l6 6" />
+                    </svg></a>
+                <a href="" class='paginaActual'>1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">4</a>
+                <a href="">5</a>
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M9 6l6 6l-6 6" />
+                    </svg></a>
+            </footer>
+        </section>
+    </main>
+</body>
+
+</html>
