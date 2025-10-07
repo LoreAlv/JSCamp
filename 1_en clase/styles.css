@@ -311,6 +311,8 @@ header {
     }
     h1 {
         margin-top: 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
     }
 
     .headerFijado {
@@ -323,6 +325,16 @@ header {
         background: rgba(6, 24, 42, 0.6); /* color de fondo con transparencia */
         backdrop-filter: blur(6px);
         border-bottom: 1px solid var(--border);
+        margin: auto;
+        max-width: 80rem;
+    }
+    .empresa {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--text-primary);
     }
 
     .barraNavegacion {
@@ -330,6 +342,11 @@ header {
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
+        svg {
+            width: 32px;
+            height: 32px;
+            color: var(--primary-light);
+        }
     }
 
     .acciones {
@@ -488,7 +505,7 @@ header {
         color: #64748b;
     }
 
-    form .botonera button {
+    form .botonera select {
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
         background-color: var(--card-bg);
@@ -501,6 +518,7 @@ header {
         font-size: 1rem;
         white-space: nowrap;
         display: flex;
+        appearance: base-select;
         svg {
             margin-left: 8px;
             stroke: white;
@@ -508,7 +526,7 @@ header {
     }
 
     form .botonera :hover,
-    form .botonera button:focus {
+    form .botonera select:focus {
         background-color: var(--primary);
     }
 
