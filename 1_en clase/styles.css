@@ -530,6 +530,11 @@ header {
         background-color: var(--primary);
     }
 
+    form .botonera select option {
+        background-color: var(--card-bg);
+        color: var(--text-primary);
+    }
+
     /* Grid de Features */
     main > section:nth-child(2) div {
         margin: 10px auto;
