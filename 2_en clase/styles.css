@@ -160,6 +160,13 @@ form button {
     font-family: inherit;
     font-size: 1rem;
     white-space: nowrap;
+    &:active {
+        transform: scale(0.9);
+    }
+    &:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+    }
 }
 form button:hover,
 form button:focus {
@@ -529,6 +536,14 @@ article {
         white-space: nowrap;
         &:hover {
             background-color: var(--primary-hover);
+        }
+        &:active {
+            transform: scale(0.9);
+        }
+        &.is-applied {
+            background-color: #4caf50;
+            cursor: none;
+            pointer-events: none;
         }
     }
 
