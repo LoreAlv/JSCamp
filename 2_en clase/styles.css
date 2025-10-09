@@ -105,6 +105,11 @@ nav a {
     color: var(--text-secondary);
     transition: color 0.2s;
     font-weight: 500;
+    &.menuActivo {
+        color: var(--primary-light);
+        font-weight: 700;
+        pointer-events: none;
+    }
 }
 nav a:hover,
 nav a:focus {
@@ -114,7 +119,7 @@ nav a:focus {
 
 /* Formulario de búsqueda reutilizable */
 form {
-    max-width: 42rem;
+    max-width: 80rem;
     width: 100%;
     margin: 0 auto;
     padding-inline: 1rem;
@@ -183,14 +188,25 @@ article {
     margin-bottom: 16px;
     padding: 2rem;
 }
+.titulazo + p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+}
+/* Footer */
+footer {
+    background-color: var(--background);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 16px;
 
+    small {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+    }
+}
 /* Página Home */
 .home {
-    /* Navegación del header a otras páginas */
-    nav {
-        /* Solo deja aquí lo específico si lo hay */
-    }
-
     /* Botones del Header */
     header div a {
         padding: 0.5rem 1rem;
@@ -296,18 +312,6 @@ article {
             font-weight: 500;
         }
     }
-    /* Footer */
-    footer {
-        background-color: var(--background);
-        border-top: 1px solid var(--border);
-        text-align: center;
-        padding: 16px;
-
-        small {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }
-    }
 }
 
 /** Página Search **/
@@ -322,6 +326,7 @@ article {
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--text-primary);
+        margin-top: 1.5rem;
     }
     h1 {
         margin-top: 1rem;
@@ -339,8 +344,6 @@ article {
         background: rgba(6, 24, 42, 0.6); /* color de fondo con transparencia */
         backdrop-filter: blur(6px);
         border-bottom: 1px solid var(--border);
-        margin: auto;
-        max-width: 80rem;
     }
     .empresa {
         display: flex;
