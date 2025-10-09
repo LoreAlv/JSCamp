@@ -587,17 +587,17 @@ article {
         font-weight: 700;
     }
 
-    nav {
+    .paginacion {
         display: grid;
         justify-content: center;
-        gap: 24px;
+        gap: 1.5rem;
         grid-template-columns: repeat(7, 20px);
         margin-top: 1.5rem;
         padding: 1.5rem 0;
         border: 0;
     }
 
-    nav a {
+    .paginacion a {
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -607,12 +607,14 @@ article {
         height: 40px;
         border-radius: 5px;
         cursor: pointer;
+        transition: all;
         &:hover {
             background-color: var(--card-bg);
         }
         &.paginaActual {
             background-color: var(--primary-light);
             color: white;
+            pointer-events: none;
         }
     }
 }
