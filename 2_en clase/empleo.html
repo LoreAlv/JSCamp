@@ -11,7 +11,7 @@
     <script src="./script.js" type="module"></script>
 </head>
 
-<body class="search-results">
+<body class="job-offer">
     <header class="headerFijado">
         <div class="barraNavegacion">
             <div class="empresa">
@@ -46,82 +46,128 @@
             </form>
         </div>
     </header>
-    <main>
+    <main class="oferta">
         <section>
-            <nav class="ofertas">
+            <nav class="nav-oferta">
                 <a href="./empleos.html">Empleos</a> /
-                <span>Nosé</span>
+                <span class="span-oferta">Ingeniero de Software Senior</span>
             </nav>
-            <h2 class="titulazo">Ingeniero de Software Senior</h2>
-            <p class="jobCompany">Tech Solutions Inc. | Remoto</p>
-            <button class="jobApplybtn">Aplicar</button>
-
+            <header class="headerOferta">
+                <div>
+                    <h2 class="titulazo">Ingeniero de Software Senior</h2>
+                    <p class="jobCompany">Tech Solutions Inc. - Remoto</p>
+                </div>
+                <button class="jobApplybtn">Aplicar ahora</button>
+            </header>
 
         </section>
         <section>
             <header>
-                <h2>Resultados de búsqueda </h2>
+                <h2>Descripción del puesto</h2>
             </header>
-            <div class="jobs-listing">
-                <article class="job-listing-card">
-                    <h3 class="jobTible">Ingeniero de Software</h3>
-                    <p class="jobCompany">Tech Solutions Inc. | Remoto</p>
-                    <button class="jobApplybtn">Aplicar</button>
-                    <p class="jobDescription">Buscamos un ingeniero de software con experiencia en desarrollo web y
-                        conocimientos en
-                        JavaScript,
-                        React y
-                        Node.js. El
-                        candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.
-                    </p>
-                </article>
-                <article class="job-listing-card">
-                    <h3 class="jobTible">Analista de Datos</h3>
-                    <p class="jobCompany">Data Driven Co. | Ciudad de México</p>
-                    <button class="jobApplybtn">Aplicar</button>
-                    <p class="jobDescription">Estamos buscando un analista de datos con experiencia en el manejo de
-                        grandes conjuntos de datos y herramientas de
-                        visualización. Se requiere conocimiento en SQL, Python y R. </p>
-                </article>
-                <article class="job-listing-card">
-                    <h3 class="jobTible">Desarrollador de Aplicaciones Móviles</h3>
-                    <p class="jobCompany">Mobile Apps Ltd. | Guadalajara</p>
-                    <button class="jobApplybtn">Aplicar</button>
-                    <p class="jobDescription">Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS
-                        y/o Android. El candidato debe tener
-                        conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.</p>
-                </article>
-                <article class="job-listing-card">
-                    <h3 class="jobTible">Ingeniero de DevOps</h3>
-                    <p class="jobCompany">Cloud Services SA | Remoto</p>
-                    <button class="jobApplybtn">Aplicar</button>
-                    <p class="jobDescription">Estamos buscando un ingeniero de DevOps con experiencia en la gestión de
-                        infraestructuras en la nube, automatización de
-                        procesos y herramientas de integración continua. Se requiere conocimiento en AWS, Azure o GCP.
-                    </p>
-                </article>
-            </div>
-            <!-- Más resultados de búsqueda -->
-            <nav class="paginacion">
-                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M15 6l-6 6l6 6" />
-                    </svg></a>
-                <a href="" class='paginaActual'>1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href="">4</a>
-                <a href="">5</a>
-                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M9 6l6 6l-6 6" />
-                    </svg></a>
-            </nav>
+            <p>
+                Tech Solutions Inc. está buscando un Ingeniero de Software Senior altamente motivado y experimentado
+                para unirse a
+                nuestro equipo remoto. El candidato ideal tendrá una sólida formación en desarrollo de software, con
+                experiencia en el
+                diseño, desarrollo e implementación de soluciones de software escalables y de alto rendimiento. Como
+                Ingeniero de
+                Software Senior, usted será responsable de liderar proyectos de desarrollo, mentorizar a ingenieros
+                junior y colaborar
+                con equipos multifuncionales para entregar productos de software de alta calidad.
+            </p>
         </section>
+        <section>
+            <header>
+                <h2>Responsabilidades</h2>
+            </header>
+            <ul>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M9 12l2 2l4 -4" />
+                    </svg> <span>Diseñar, desarrollar y mantener aplicaciones web utilizando tecnologías
+                        modernas.</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M9 12l2 2l4 -4" />
+                    </svg> <span>Colaborar con equipos de producto y diseño para definir y entregar nuevas
+                        características.</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M9 12l2 2l4 -4" />
+                    </svg> <span>Escribir código limpio, eficiente y bien documentado.</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M9 12l2 2l4 -4" />
+                    </svg> <span>Realizar revisiones de código y proporcionar retroalimentación constructiva a los
+                        miembros del equipo.</span></li>
+            </ul>
+        </section>
+        <section>
+            <header>
+                <h2>Requisitos</h2>
+            </header>
+            <ul>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M9 12l2 2l4 -4" />
+                    </svg> <span>Licenciatura en Informática o campo relacionado.</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M9 12l2 2l4 -4" />
+                    </svg> <span>Mínimo de 5 años de experiencia en desarrollo de software.</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M9 12l2 2l4 -4" />
+                    </svg> <span>Experiencia con frameworks de JavaScript (por ejemplo, React, Angular, Vue.js).</span>
+                </li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M9 12l2 2l4 -4" />
+                    </svg> <span>Familiaridad con metodologías ágiles y herramientas de control de versiones (por
+                        ejemplo, Git).</span></li>
+            </ul>
+        </section>
+        <section>
+            <header>
+                <h2>Acerca de la empresa</h2>
+            </header>
+            <p>
+                Tech Solutions Inc. es una empresa de tecnología innovadora que se centra en la creación de soluciones
+                de software de
+                vanguardia para diversas industrias. Estamos comprometidos con el fomento de un entorno de trabajo
+                colaborativo e
+                inclusivo donde cada empleado pueda prosperar y crecer profesionalmente. Ofrecemos salarios
+                competitivos, beneficios
+                integrales y oportunidades de desarrollo profesional continuo. </p>
+        </section>
+        <footer>
+            <button class="jobApplybtn">Aplicar ahora</button>
+        </footer>
     </main>
     <footer>
         <small>&copy; 2025 DevJobs</small>
