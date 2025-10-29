@@ -318,21 +318,17 @@ main {
     padding: 3rem 2rem;
 }
 
-.jobTitle {
-    grid-area: jobTitle;
-    font-size: 1.25rem;
-    margin-bottom: 8px;
+.job-title {
+    font-size: 1.5rem;
     color: var(--text-primary);
 }
 
-.jobCompany {
-    grid-area: jobCompany;
+.job-company {
     color: var(--text-muted);
-    margin-bottom: 12px;
+    font-size: 0.875rem;
 }
 
 .jobApplybtn {
-    grid-area: jobApply;
     justify-self: end;
     align-self: baseline;
     padding: 0.5rem 1rem;
@@ -348,6 +344,7 @@ main {
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
+    margin-top: 10px;
     &:hover {
         background-color: var(--primary-hover);
     }
@@ -585,24 +582,12 @@ main {
         border-bottom: 1px solid var(--border);
         padding: 1.5rem;
         margin: 0;
-        display: grid;
-        grid-template-areas:
-            "jobTitle jobTitle jobApply"
-            "jobCompany jobCompany jobApply"
-            "jobDescription jobDescription jobApply";
+        display: flex;
+        flex-direction: column;
         &:hover {
             background-color: var(--card-bg);
         }
         @media (width < 640px) {
-            grid-template-areas:
-                "jobTitle "
-                "jobCompany "
-                "jobDescription "
-                "jobApply";
-            .jobApplybtn {
-                justify-self: start;
-                margin-top: 30px;
-            }
             .jobDescription {
                 /* Limitar a 2 líneas con puntos suspensivos */
                 display: -webkit-box;
@@ -611,6 +596,42 @@ main {
                 overflow: hidden;
             }
         }
+    }
+    .job-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        flex-direction: column;
+        padding: 0;
+        background-color: transparent;
+        gap: 0;
+    }
+    .job-card-body {
+        margin-bottom: 0.25rem;
+    }
+
+    .job-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0;
+        margin-top: 0.5rem;
+        background-color: transparent;
+        border: 0;
+    }
+
+    .job-description {
+        color: var(--text-secondary);
+        line-height: 1.5;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .job-tags {
+        color: var(--text-muted);
+        font-size: 0.875rem;
     }
 
     article:first-child {
