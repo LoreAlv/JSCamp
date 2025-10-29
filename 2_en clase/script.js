@@ -19,8 +19,8 @@ contenedorEmpleos?.addEventListener("click", (event) => {
         boton.disabled = true;
         boton.classList.add("is-applied");
     } else {
-        //navegar a empleo.html
-        window.location.href = `empleo.html`;
+        //navegar a detalles.html
+        window.location.href = `detalles.html`;
     }
 });
 

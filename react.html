@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevJobs - Resultados de búsqueda</title>
+    <link rel="stylesheet" href="./styles.css">
+    <meta name="description"
+        content="Listado de empleos para desarrolladores web y programadores. Encuentra tu próximo trabajo aquí.">
+    <!-- <script type="module">
+        import React from 'https://esm.sh/react?dev';
+        import ReactDOM from 'https://esm.sh/react-dom/client?dev';
+
+        const titulo = React.createElement('h1',
+            { style: { color: "#09f" } },
+            'Hola React.js!');
+
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+        root.render(titulo);
+    </script> -->
+    <script type="module">
+        import React from 'https://esm.sh/react?dev';
+        import ReactDOM from 'https://esm.sh/react-dom/client?dev';
+        window.React = React;
+        window.ReactDOM = ReactDOM;
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+        // const titulo = <h1 style={{ color: "#09f", fontWeight: 100 }}>Hola React.js con babel!</h1>;
+
+        // const Saludo = ({ nombre, color = "#09f" }) => {
+        //     return <h2 style={{ color: color, fontWeight: 100 }}>Hola {nombre}!</h2>;
+        // }
+        // const App = () => {
+        //     return (
+        //         <div>
+        //             <Saludo nombre="midudev" color="#09f" />
+        //             <Saludo nombre="Ana" color="red" />
+        //             <Saludo nombre="Luis" color="black" />
+        //         </div>
+        //     );
+        // }
+        const JobCard = ({ titulo, empresa, ubicacion, descripcion, data }) => {
+            const [isApplied, setIsApplied] = React.useState(false);
+
+            const textBtn = isApplied ? 'Aplicado' : 'Aplicar';
+            const handleClick = () => {
+                setIsApplied(!isApplied);
+            };
+
+            return (
+                <article
+                    className="job-listing-card"
+                    data-ubicacion={data?.ubicacion?.toLowerCase()}
+                    data-tecnologia={data?.tecnologia?.map((tech) => tech.toLowerCase()).join(", ")}
+                    data-contrato={data?.contrato?.toLowerCase().replace(" ", "-")}
+                    data-experiencia={data?.experiencia?.toLowerCase().replace(" ", "-")}>
+                    <h3 className="jobTible">{titulo}</h3>
+                    <p className="jobCompany">{empresa} | {ubicacion}</p>
+                    <button className={`jobApplybtn ${isApplied ? 'is-applied' : ''}`}
+                        disabled={isApplied}
+                        onClick={handleClick}>{textBtn}</button>
+                    <p className="jobDescription">{descripcion}
+                    </p>
+                </article>
+            );
+        }
+
+        const App = () => {
+            return (
+                <div className="job-listings">
+                    <JobCard
+                        titulo="Desarrollador Frontend React.js"
+                        empresa="Tech Solutions"
+                        ubicacion="Remoto"
+                        descripcion="Buscamos un desarrollador frontend con experiencia en React.js para unirse a nuestro equipo."
+                        data={{ ubicacion: 'Barcelona', tecnologia: ['Java', 'React'] }} />
+                </div>
+            );
+        }
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+        //     const titulo = Saludo({ nombre: 'midudev' });
+        // root.render(titulo);
+        root.render(<App />);
+    </script>
+</head>
+
+<body class="search-results">
+    <header class="headerFijado">
+        <div class="barraNavegacion">
+            <div class="empresa">
+                <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                        d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+                        fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+                <h1>DevJobs</h1>
+            </div>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="empleos.html" class="menuActivo">Empleos</a>
+                <a href="">Empresas</a>
+                <a href="">Salarios</a>
+            </nav>
+        </div>
+        <div class="acciones">
+            <a href="" class="botonAzul">Subir CV</a>
+            <!-- 
+            <a href="" class="perfil"><img src="./foto.png" alt="Foto de perfil"></a> -->
+            <devjobs-avatar service="x" username="mi8dev" size="50" />
+            <!-- <devjobs-avatar service="github" username="midudev" size="24" /> -->
+        </div>
+    </header>
+    <main>
+        <section>
+            <h1>React.js, primeros pasos</h1>
+        </section>
+        <section>
+            <header>
+                <h2>Resultados de búsqueda </h2>
+            </header>
+            <div id="root"></div>
+        </section>
+    </main>
+    <footer>
+        <small>&copy; 2025 DevJobs</small>
+    </footer>
+</body>
+
+</html>

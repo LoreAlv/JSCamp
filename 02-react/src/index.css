@@ -216,6 +216,22 @@ footer {
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--border);
 }
+.headerFijado a {
+    margin: auto;
+}
+
+.headerFijado img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    box-sizing: border-box;
+    &:hover {
+        border: 4px solid var(--primary-hover);
+    }
+}
+
 .empresa {
     display: flex;
     align-items: center;
@@ -684,4 +700,39 @@ main {
 .oferta footer {
     display: flex;
     flex-direction: row-reverse;
+}
+
+.paginacion {
+    display: grid;
+    justify-content: center;
+    gap: 1.75rem;
+    grid-template-columns: repeat(7, 20px);
+    margin-top: 1.5rem;
+    padding: 1.5rem 0;
+    border: 0;
+}
+
+.paginacion a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all;
+    &:hover {
+        background-color: var(--card-bg);
+    }
+    &.paginaActual {
+        background-color: var(--primary-light);
+        color: white;
+        pointer-events: none;
+    }
+}
+.is-disabled {
+    pointer-events: none;
+    opacity: 0.35;
 }

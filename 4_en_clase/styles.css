@@ -553,7 +553,7 @@ main {
         color: var(--text-primary);
     }
     /* Grid de Features */
-    main > section:nth-child(2) > div {
+    main > section:nth-child(2) div {
         margin: 10px auto;
         display: grid;
         grid-template-columns: 1fr;
