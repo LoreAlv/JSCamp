@@ -1,10 +1,34 @@
-export const DevJobsPaginacion = ({ numPags = 1, paginaActual = 1 }) => {
+import styles from "./Pagination.module.css";
+
+export const Pagination = ({ numPags = 1, paginaActual = 1, onPageChange }) => {
     // const url = "../empleos.html";
     const url = "#";
+
+    const handlePrevClick = (event) => {
+        event.preventDefault();
+        if (paginaActual > 1) {
+            onPageChange(paginaActual - 1);
+        }
+    };
+
+    const handleNextClick = (event) => {
+        event.preventDefault();
+        if (paginaActual < numPags) {
+            onPageChange(paginaActual + 1);
+        }
+    };
+
+    const handleChangePage = (event, page) => {
+        event.preventDefault();
+        if (page !== paginaActual) {
+            onPageChange(page);
+        }
+    };
+
     return (
         <>
-            <nav className="paginacion">
-                <a href={`${url}?pagina=${parseInt(paginaActual) - 1}`} className={paginaActual == 1 ? "is-disabled" : ""}>
+            <nav className={styles.paginacion}>
+                <a href={`${url}?pagina=${parseInt(paginaActual) - 1}`} onClick={handlePrevClick} className={paginaActual == 1 ? styles.isDisabled : ""}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -21,11 +45,11 @@ export const DevJobsPaginacion = ({ numPags = 1, paginaActual = 1 }) => {
                     </svg>
                 </a>
                 {Array.from({ length: numPags }, (_, i) => i + 1).map((i) => (
-                    <a key={i} href={`${url}?pagina=${i}`} className={i === paginaActual ? "paginaActual" : ""}>
+                    <a key={i} onClick={(e) => handleChangePage(e, i)} href={`${url}?pagina=${i}`} className={i === paginaActual ? styles.paginaActual : ""}>
                         {i}
                     </a>
                 ))}
-                <a href={`${url}?pagina=${parseInt(paginaActual) + 1}`} className={paginaActual == numPags ? "is-disabled" : ""}>
+                <a href={`${url}?pagina=${parseInt(paginaActual) + 1}`} onClick={handleNextClick} className={paginaActual == numPags ? styles.isDisabled : ""}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"

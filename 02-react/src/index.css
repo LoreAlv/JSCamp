@@ -514,6 +514,7 @@ main {
         background-color: var(--background);
     }
     form .buscador {
+        position: relative;
         display: flex;
         border: 2px solid var(--border);
         border-radius: 5px;
@@ -721,39 +722,4 @@ main {
 .oferta footer {
     display: flex;
     flex-direction: row-reverse;
-}
-
-.paginacion {
-    display: grid;
-    justify-content: center;
-    gap: 1.75rem;
-    grid-template-columns: repeat(7, 20px);
-    margin-top: 1.5rem;
-    padding: 1.5rem 0;
-    border: 0;
-}
-
-.paginacion a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-primary);
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all;
-    &:hover {
-        background-color: var(--card-bg);
-    }
-    &.paginaActual {
-        background-color: var(--primary-light);
-        color: white;
-        pointer-events: none;
-    }
-}
-.is-disabled {
-    pointer-events: none;
-    opacity: 0.35;
 }
