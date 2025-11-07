@@ -71,7 +71,7 @@ header {
     }
 }
 
-form button {
+/* form button {
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     background-color: var(--primary);
@@ -92,7 +92,7 @@ form button {
     &:active {
         transform: scale(0.9);
     }
-}
+} */
 
 /* --- BLOQUE REUTILIZABLE PARA HOME Y SEARCH --- */
 nav {
@@ -153,7 +153,7 @@ form span {
     align-items: center;
     flex-shrink: 0;
 }
-form button {
+/* form button {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     background-color: var(--primary);
@@ -178,7 +178,7 @@ form button:focus {
     background-color: var(--primary-hover);
     outline: 2px solid white;
     outline-offset: 2px;
-}
+} */
 
 /* Artículos reutilizables */
 article {
@@ -291,21 +291,6 @@ a.botonAzul {
     display: flex;
     gap: 1rem;
     align-items: center;
-    .buscador {
-        padding: 0 8px;
-        border: 1px solid var(--border);
-        &:focus-within {
-            border: 2px solid var(--primary-hover);
-        }
-        input {
-            font-size: 0.875rem;
-        }
-        svg {
-            width: 20px;
-            height: 20px;
-            color: var(--text-muted);
-        }
-    }
 }
 .empresa h1 {
     margin-top: 1rem;
@@ -513,24 +498,7 @@ main {
     form > div {
         background-color: var(--background);
     }
-    form .buscador {
-        position: relative;
-        display: flex;
-        border: 2px solid var(--border);
-        border-radius: 5px;
-        align-items: center;
-        width: 100%;
-        padding-left: 12px;
-        background-color: var(--input-bg);
-        margin-bottom: 12px;
-        svg {
-            stroke: #64748b;
-            color: #64748b;
-        }
-        &:focus-within {
-            border-color: var(--primary-hover);
-        }
-    }
+
     .botonera {
         display: flex;
         justify-content: flex-start;
@@ -557,8 +525,7 @@ main {
         }
     }
 
-    form .botonera :hover,
-    form .botonera select:focus {
+    form .botonera select:hover {
         background-color: var(--primary);
     }
 

@@ -1,4 +1,5 @@
-import { useId } from "react";
+import styles from "./SearchFormSection.module.css";
+import { useId, useState } from "react";
 
 export const SearchFormSection = ({ onSearch, onTextFilter }) => {
     //generamos identificadores para el formulario y sus elementos
@@ -7,20 +8,22 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
     const locationSelectId = useId();
     const contractSelectId = useId();
     const experienceSelectId = useId();
-    const formId = useId();
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const formData = new FormData(event.target);
-    //     const searchParams = {
-    //         search: formData.get(searchId),
-    //         technology: formData.get(techSelectId),
-    //         location: formData.get(locationSelectId),
-    //         contract: formData.get(contractSelectId),
-    //         experience: formData.get(experienceSelectId),
-    //     };
-    //     onSearch(searchParams);
-    // };
+    //estado para saber qué campo está activo
+    const [focusedField, setFocusedField] = useState(null);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const searchParams = {
+            search: formData.get(searchId),
+            technology: formData.get(techSelectId),
+            location: formData.get(locationSelectId),
+            contract: formData.get(contractSelectId),
+            experience: formData.get(experienceSelectId),
+        };
+        onSearch(searchParams);
+    };
 
     const handleChange = (event) => {
         event.preventDefault();
@@ -45,57 +48,78 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
         <section>
             <h2 className="titulazo">Encuentra tu próximo trabajo</h2>
             <p>Explora miles de oportunidades en el sector tecnológico</p>
-            <form
-                role="search"
-                id="empleos-search-form"
-                name={formId}
-                // onSubmit={handleSubmit}
-            >
-                <div className="buscador">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="icon icon-tabler icons-tabler-outline icon-tabler-search">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                        <path d="M21 21l-6 -6" />
-                    </svg>
-                    <input type="text" name={searchId} id="empleos-search-input" placeholder="Buscar empleos por título o empresa" onChange={handleTextChange} />
-                    {/* <button type="submit" style={{ position: "absolute", right: "5px" }}>
-                        Buscar
-                    </button> */}
+            <form role="search" id="empleos-search-form" onSubmit={handleSubmit}>
+                <div className={styles.formGroup}>
+                    <div className={styles.buscador}>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.25"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="icon icon-tabler icons-tabler-outline icon-tabler-search">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                            <path d="M21 21l-6 -6" />
+                        </svg>
+                        <input
+                            type="text"
+                            name={searchId}
+                            id="empleos-search-input"
+                            placeholder="Buscar empleos por título o empresa"
+                            onChange={handleTextChange}
+                            onFocus={() => setFocusedField("search")}
+                            onBlur={() => setFocusedField(null)}
+                            // style={{
+                            //     borderColor: focusedField === "search" ? "#4f46e5" : "#d1d5db",
+                            //     outline: focusedField === "search" ? "2px solid #4f46e5" : "none",
+                            // }}
+                        />
+                        {focusedField === "search" && <small className={styles.inputHint}>Busca por título de trabajo o empresa</small>}
+                    </div>
                 </div>
                 <div className="botonera">
-                    <select name={techSelectId} id="tecnologia-select" className="selectFiltro" onChange={handleChange}>
-                        <option value="">Todas las tecnologías</option>
-                        <optgroup label="Frontend">
-                            <option value="html">HTML</option>
-                            <option value="css">CSS</option>
-                            <option value="javascript">JavaScript</option>
-                            <option value="react">React</option>
-                            <option value="vue">Vue</option>
-                        </optgroup>
-                        <optgroup label="Backend">
-                            <option value="node">Node.js</option>
-                            <option value="python">Python</option>
-                            <option value="php">PHP</option>
-                            <option value="java">Java</option>
-                        </optgroup>
-                        <optgroup label="Base de datos">
-                            <option value="mysql">MySQL</option>
-                            <option value="mongodb">MongoDB</option>
-                            <option value="postgresql">PostgreSQL</option>
-                        </optgroup>
-                        <option value="mobile">Móvil</option>
-                    </select>
-                    <select name={locationSelectId} id="ubicacion-select" className="selectFiltro" onChange={handleChange}>
+                    <div className={styles.formGroup}>
+                        <select
+                            name={techSelectId}
+                            id="tecnologia-select"
+                            // onChange={handleChange}
+                            onFocus={() => setFocusedField("tech")}
+                            onBlur={() => setFocusedField(null)}
+                            className={`${focusedField === "tech" ? styles.inputFocused : ""} selectFiltro`}>
+                            <option value="">Todas las tecnologías</option>
+                            <optgroup label="Frontend">
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="react">React</option>
+                                <option value="vue">Vue</option>
+                            </optgroup>
+                            <optgroup label="Backend">
+                                <option value="node">Node.js</option>
+                                <option value="python">Python</option>
+                                <option value="php">PHP</option>
+                                <option value="java">Java</option>
+                            </optgroup>
+                            <optgroup label="Base de datos">
+                                <option value="mysql">MySQL</option>
+                                <option value="mongodb">MongoDB</option>
+                                <option value="postgresql">PostgreSQL</option>
+                            </optgroup>
+                            <option value="mobile">Móvil</option>
+                        </select>
+                    </div>
+                    <select
+                        name={locationSelectId}
+                        id="ubicacion-select"
+                        // onChange={handleChange}
+                        onFocus={() => setFocusedField("location")}
+                        onBlur={() => setFocusedField(null)}
+                        className={`${focusedField === "location" ? styles.inputFocused : ""} selectFiltro`}>
                         <option value="">Todas las ubicaciones</option>
 
                         <optgroup label="España">
@@ -114,7 +138,13 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
 
                         <option value="remoto">🌍 Remoto</option>
                     </select>
-                    <select name={contractSelectId} id="contrato-select" className="selectFiltro" onChange={handleChange}>
+                    <select
+                        name={contractSelectId}
+                        id="contrato-select"
+                        // onChange={handleChange}
+                        onFocus={() => setFocusedField("contrato")}
+                        onBlur={() => setFocusedField(null)}
+                        className={`${focusedField === "contrato" ? styles.inputFocused : ""} selectFiltro`}>
                         <option value="">Cualquier contratos</option>
                         <option value="tiempo-completo">Tiempo completo</option>
                         <option value="medio-tiempo">Medio tiempo</option>
@@ -122,7 +152,13 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
                         <option value="practicas">Prácticas</option>
                         <option value="freelance">Freelance</option>
                     </select>
-                    <select name={experienceSelectId} id="experiencia-select" className="selectFiltro" onChange={handleChange}>
+                    <select
+                        name={experienceSelectId}
+                        id="experiencia-select"
+                        // onChange={handleChange}
+                        onFocus={() => setFocusedField("experiencia")}
+                        onBlur={() => setFocusedField(null)}
+                        className={`${focusedField === "experiencia" ? styles.inputFocused : ""} selectFiltro`}>
                         <option value="">Todos los niveles</option>
                         <option value="junior">Junior</option>
                         <option value="mid">Mid-level</option>
@@ -131,6 +167,9 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
                         <option value="intern">Prácticas</option>
                         <option value="freelance">Freelance</option>
                     </select>
+                    <button type="submit" className={styles.botonBuscar}>
+                        Buscar
+                    </button>
                 </div>
             </form>
         </section>
