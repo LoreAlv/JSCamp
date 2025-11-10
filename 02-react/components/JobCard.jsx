@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Badge } from "./Badge";
 
-export const JobCard = ({ job }) => {
+export const JobCard = ({ job, isFeatured = true, isNew = true }) => {
     // extraemos las propiedades del objeto job
     const { title, company, location, salary, description, tags, contract, experience } = job;
+    const isRemote = location?.toLowerCase().includes("remote") || location?.toLowerCase().includes("remoto");
     const [isApplied, setIsApplied] = useState(false);
 
     const buttonClasses = `jobApplybtn ${isApplied ? "is-applied" : ""}`;
@@ -21,6 +23,11 @@ export const JobCard = ({ job }) => {
             <header className="job-card-header">
                 <h3 className="job-title">{title}</h3>
                 <p className="job-company">{company}</p>
+                <div className="badges">
+                    {isNew && <Badge type="new">🆕 Nuevo</Badge>}
+                    {isFeatured && <Badge type="featured">⭐ Destacado</Badge>}
+                    {isRemote && <Badge type="remote">🏠 Remoto</Badge>}
+                </div>
             </header>
             <div className="job-card-body">
                 <p className="job-location">📍 {location}</p>

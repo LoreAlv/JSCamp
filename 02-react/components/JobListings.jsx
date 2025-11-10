@@ -10,7 +10,7 @@ export const JobListings = ({ jobs, numJobs }) => {
             {/* <!-- Se añadirán los resultados aquí dinámicamente. --> */}
             <div className="jobs-listing">
                 {jobs.map((job, index) => (
-                    <JobCard key={index} job={job} />
+                    <JobCard key={index} job={job} isFeatured={Math.random() < 0.5} isNew={Math.random() < 0.5} />
                 ))}
             </div>
         </>
