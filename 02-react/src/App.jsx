@@ -10,24 +10,24 @@ import { useSearchParams } from "react-router";
 const RESULTS_PER_PAGE = 5;
 
 function App() {
-    const [currentPage, setCurrentPage] = useState(1);
+    // const [currentPage, setCurrentPage] = useState(1);
     const [textFilter, setTextFilter] = useState("");
     const [filters, setFilters] = useState({});
-    // const [searchParams, setSearchParams] = useSearchParams();
-    // const currentPage = Number(searchParams.get("page")) || 1;
+    const [searchParams, setSearchParams] = useSearchParams();
+    const currentPage = Number(searchParams.get("page")) || 1;
 
     const handlePageChange = (page) => {
-        setCurrentPage(page);
+        // setCurrentPage(page);
         window.scrollTo({ top: 0, behavior: "smooth" });
-        // setSearchParams({ page });
+        setSearchParams({ page });
     };
 
     const handleSearch = (filter) => {
         console.log("handleSearch", filter);
         setFilters(filter);
-        setCurrentPage(1); // Reiniciar a la primera página al cambiar los filtros de búsqueda
+        // setCurrentPage(1); // Reiniciar a la primera página al cambiar los filtros de búsqueda
         window.scrollTo({ top: 0, behavior: "smooth" });
-        // setSearchParams({ page: 1 });
+        setSearchParams({ page: 1 });
     };
 
     const handleTextFilter = (newText) => {
