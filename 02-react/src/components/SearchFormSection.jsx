@@ -1,3 +1,4 @@
+import { useSearchForm } from "../hooks/useSearchForm";
 import styles from "./SearchFormSection.module.css";
 import { useId, useState } from "react";
 
@@ -9,41 +10,23 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
     const contractSelectId = useId();
     const experienceSelectId = useId();
 
+    const {
+        searchText,
+        handleSubmit,
+        //  handleChange,
+        handleTextChange,
+    } = useSearchForm({
+        searchId,
+        techSelectId,
+        locationSelectId,
+        contractSelectId,
+        experienceSelectId,
+        onSearch,
+        onTextFilter,
+    });
     //estado para saber qué campo está activo
     const [focusedField, setFocusedField] = useState(null);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const searchParams = {
-            search: formData.get(searchId),
-            technology: formData.get(techSelectId),
-            location: formData.get(locationSelectId),
-            contract: formData.get(contractSelectId),
-            experience: formData.get(experienceSelectId),
-        };
-        onSearch(searchParams);
-    };
-
-    const handleChange = (event) => {
-        event.preventDefault();
-        console.log("en el submit", event);
-        //coger el formulario al que pertenece el elemento que ha cambiado
-        const formData = new FormData(event.target.form);
-        const searchParams = {
-            search: formData.get(searchId),
-            technology: formData.get(techSelectId),
-            location: formData.get(locationSelectId),
-            contract: formData.get(contractSelectId),
-            experience: formData.get(experienceSelectId),
-        };
-        console.log("Parámetros de búsqueda:", searchParams);
-        onSearch(searchParams);
-    };
-    const handleTextChange = (event) => {
-        const text = event.target.value;
-        onTextFilter(text);
-    };
     return (
         <section>
             <h2 className="titulazo">Encuentra tu próximo trabajo</h2>

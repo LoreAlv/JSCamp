@@ -350,19 +350,34 @@ main {
 
 /* Página Home */
 .home {
-    /* Botones del Header */
-    header div a {
+    form button {
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
-        background-color: #334155;
-        color: var(--text-primary);
-        display: inline-block;
-        font-size: 0.875rem;
+        background-color: var(--primary);
+        color: white;
         font-weight: 700;
-        text-decoration: none;
-        /* TODO */
-    } /* Hero */
-    main > section:nth-child(1) {
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-family: inherit;
+        font-size: 1rem;
+        white-space: nowrap;
+        &:active {
+            transform: scale(0.9);
+        }
+        &:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+    }
+    form button:hover,
+    form button:focus {
+        background-color: var(--primary-hover);
+        outline: 2px solid white;
+        outline-offset: 2px;
+    }
+    /* Hero */
+    section:nth-child(1) {
         height: 500px;
         text-align: center;
         display: flex;
@@ -387,7 +402,7 @@ main {
     }
 
     /* Features Section */
-    main > section:nth-child(2) {
+    section:nth-child(2) {
         padding-inline: 1rem;
         background-color: var(--background);
         padding-top: 2rem;
@@ -410,14 +425,14 @@ main {
             margin: 0 auto;
         }
     }
-    main > section:nth-child(2) h2 {
+    section:nth-child(2) h2 {
         font-size: 1.875rem;
         font-weight: 700;
         color: var(--text-primary);
         margin-bottom: 1rem;
     }
 
-    main > section:nth-child(2) > div > div:first-child > p {
+    section:nth-child(2) > div > div:first-child > p {
         font-size: 1.125rem;
         color: var(--text-muted);
         max-width: 42rem;
@@ -425,7 +440,7 @@ main {
     }
 
     /* Grid de Features */
-    main > section:nth-child(2) footer {
+    section:nth-child(2) footer {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 16px;
