@@ -18,13 +18,7 @@ export const Header = () => {
                     </Link>
                 </div>
                 <nav>
-                    {/* <a href="/">Inicio</a> */}
-                    <Link
-                        href="/search"
-                        // className="menuActivo"
-                    >
-                        Empleos
-                    </Link>
+                    <Link href="/search">Empleos</Link>
                     <Link href="">Empresas</Link>
                     <Link href="">Salarios</Link>
                 </nav>

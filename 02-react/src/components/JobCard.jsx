@@ -3,8 +3,8 @@ import { Badge } from "./Badge";
 
 export const JobCard = ({ job, isFeatured = true, isNew = true }) => {
     // extraemos las propiedades del objeto job
-    const { title, company, location, salary, description, tags, contract, experience } = job;
-    const isRemote = location?.toLowerCase().includes("remote") || location?.toLowerCase().includes("remoto");
+    const { titulo, empresa, ubicacion, salary, descripcion, tags, contract, experience } = job;
+    const isRemote = ubicacion?.toLowerCase().includes("remote") || ubicacion?.toLowerCase().includes("remoto");
     const [isApplied, setIsApplied] = useState(false);
 
     const buttonClasses = `jobApplybtn ${isApplied ? "is-applied" : ""}`;
@@ -16,13 +16,13 @@ export const JobCard = ({ job, isFeatured = true, isNew = true }) => {
     return (
         <article
             className="job-listing-card"
-            data-ubicacion={location?.toLowerCase()}
+            data-ubicacion={ubicacion?.toLowerCase()}
             data-tecnologia={tags?.map((tech) => tech.toLowerCase()).join(", ")}
             data-contrato={contract?.toLowerCase().replace(" ", "-")}
             data-experiencia={experience?.toLowerCase().replace(" ", "-")}>
             <header className="job-card-header">
-                <h3 className="job-title">{title}</h3>
-                <p className="job-company">{company}</p>
+                <h3 className="job-title">{titulo}</h3>
+                <p className="job-company">{empresa}</p>
                 <div className="badges">
                     {isNew && <Badge type="new">🆕 Nuevo</Badge>}
                     {isFeatured && <Badge type="featured">⭐ Destacado</Badge>}
@@ -30,9 +30,9 @@ export const JobCard = ({ job, isFeatured = true, isNew = true }) => {
                 </div>
             </header>
             <div className="job-card-body">
-                <p className="job-location">📍 {location}</p>
-                <p className="job-salary">💰 {salary}</p>
-                <p className="job-description">{description}</p>
+                <p className="job-location">📍 {ubicacion}</p>
+                {/* <p className="job-salary">💰 {salary}</p> */}
+                <p className="job-description">{descripcion}</p>
             </div>
             <footer className="job-card-footer">
                 <span className="job-tags">{tags?.join(", ")}</span>

@@ -1,39 +1,62 @@
 import { useState } from "react";
 
+let timeoutRef = null;
+
 export const useSearchForm = ({ searchId, techSelectId, locationSelectId, contractSelectId, experienceSelectId, onSearch, onTextFilter }) => {
     const [searchText, setSearchText] = useState("");
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const searchParams = {
-            search: formData.get(searchId),
-            technology: formData.get(techSelectId),
-            location: formData.get(locationSelectId),
-            contract: formData.get(contractSelectId),
-            experience: formData.get(experienceSelectId),
-        };
-        onSearch(searchParams);
-    };
+    const [filtering, setFiltering] = useState(false);
 
     const handleChange = (event) => {
-        event.preventDefault();
-        console.log("en el submit", event);
-        //coger el formulario al que pertenece el elemento que ha cambiado
-        const formData = new FormData(event.target.form);
+        // Detectar submit (onSubmit) o cambio (onChange)
+        const isSubmit = event.type === "submit" || (event.target && event.target.tagName === "FORM");
+
+        if (isSubmit) {
+            event.preventDefault();
+        }
+
+        // Si es el input de búsqueda de texto
+        if (!isSubmit && event.target && event.target.name === searchId) {
+            const text = event.target.value;
+            setSearchText(text);
+            if (timeoutRef) clearTimeout(timeoutRef);
+            timeoutRef = setTimeout(() => onTextFilter(text), 750);
+            setFiltering(text.length > 0);
+            return;
+        }
+
+        // Obtener el formulario (si es submit, event.target es el form)
+        const form = isSubmit ? event.target : event.target.form;
+        if (!form) return;
+
+        const formData = new FormData(form);
         const searchParams = {
-            search: formData.get(searchId),
             technology: formData.get(techSelectId),
-            location: formData.get(locationSelectId),
+            type: formData.get(locationSelectId),
             contract: formData.get(contractSelectId),
-            experience: formData.get(experienceSelectId),
+            level: formData.get(experienceSelectId),
         };
-        console.log("Parámetros de búsqueda:", searchParams);
+
         onSearch(searchParams);
+        setFiltering(Object.values(searchParams).some((v) => v));
     };
-    const handleTextChange = (event) => {
-        const text = event.target.value;
-        setSearchText(text);
-        onTextFilter(text);
+
+    // Conservamos wrapper por compatibilidad si algún componente sigue llamando handleSubmit
+    // const handleSubmit = (event) => handleChange(event);
+
+    const handleReset = (ev) => {
+        // ev puede venir de un botón dentro del form: ev.target.form es el form
+        const form = ev.target.form ?? ev.target;
+        if (form && typeof form.reset === "function") form.reset();
+        setFiltering(false);
+        setSearchText("");
+        onSearch({});
     };
-    return { searchText, handleSubmit, handleChange, handleTextChange };
+
+    return {
+        searchText,
+        filtering,
+        handleReset,
+        // handleSubmit, // opcional, delega en handleChange
+        handleChange, // ahora maneja tanto change como submit
+    };
 };

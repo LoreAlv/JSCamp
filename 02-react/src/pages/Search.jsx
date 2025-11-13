@@ -1,26 +1,34 @@
-import { useEffect } from "react";
 import { JobListings } from "../components/JobListings.jsx";
 import { Pagination } from "../components/Pagination.jsx";
 import { SearchFormSection } from "../components/SearchFormSection.jsx";
-import { RESULTS_PER_PAGE, useFilterJobs } from "../hooks/useFilterJobs.jsx";
+import { useFilterJobs, RESULTS_PER_PAGE } from "../hooks/useFilterJobs.jsx";
 
 export const SearchPage = () => {
     // const [currentPage, setCurrentPage] = useState(1);
-    const { filteredJobs, jobsFilteredByFilters, pagedJobs, currentPage, handlePageChange, handleSearch, handleTextFilter } = useFilterJobs();
-    useEffect(() => {
-        document.title = `Resultados: ${jobsFilteredByFilters.length} - Pagina ${currentPage} - DevJobs`;
-    }, [jobsFilteredByFilters, currentPage]);
+    const { jobs, totalJobs, loading, currentPage, error, handlePageChange, handleSearch, handleTextFilter } = useFilterJobs();
+    const title = `Resultados: ${totalJobs} - Pagina ${currentPage} - DevJobs`;
+
+    console.log(error);
 
     return (
         <div className="search-results">
             <main>
+                <title>{title}</title>
                 <SearchFormSection onSearch={handleSearch} onTextFilter={handleTextFilter} />
                 <section>
-                    <JobListings jobs={pagedJobs} numJobs={filteredJobs.length} />
-                    <p>
-                        Mostrando {(currentPage - 1) * RESULTS_PER_PAGE + 1} - {Math.min(currentPage * RESULTS_PER_PAGE, filteredJobs.length)} de {filteredJobs.length} trabajos
-                    </p>
-                    <Pagination numPags={Math.ceil(filteredJobs.length / RESULTS_PER_PAGE)} paginaActual={currentPage} onPageChange={handlePageChange} />
+                    {error ? (
+                        <p className="text-danger">Ha habido un error</p>
+                    ) : loading ? ( // mostrar un spinner de carga mientras se obtienen los datos
+                        <div className="spinner"></div>
+                    ) : (
+                        <>
+                            <JobListings jobs={jobs} numJobs={totalJobs} />
+                            <p>
+                                Mostrando {(currentPage - 1) * RESULTS_PER_PAGE + 1} - {Math.min(currentPage * RESULTS_PER_PAGE, totalJobs)} de {totalJobs} trabajos
+                            </p>
+                            <Pagination numPags={Math.ceil(totalJobs / RESULTS_PER_PAGE)} paginaActual={currentPage} onPageChange={handlePageChange} />
+                        </>
+                    )}
                 </section>
             </main>
         </div>

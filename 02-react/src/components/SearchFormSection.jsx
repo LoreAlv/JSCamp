@@ -11,10 +11,12 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
     const experienceSelectId = useId();
 
     const {
-        searchText,
-        handleSubmit,
-        //  handleChange,
-        handleTextChange,
+        // searchText,
+        filtering,
+        // handleSubmit,
+        handleChange,
+        // handleTextChange,
+        handleReset,
     } = useSearchForm({
         searchId,
         techSelectId,
@@ -31,7 +33,7 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
         <section>
             <h2 className="titulazo">Encuentra tu próximo trabajo</h2>
             <p>Explora miles de oportunidades en el sector tecnológico</p>
-            <form role="search" id="empleos-search-form" onSubmit={handleSubmit}>
+            <form role="search" id="empleos-search-form" name="formulario" onSubmit={handleChange}>
                 <div className={styles.formGroup}>
                     <div className={styles.buscador}>
                         <svg
@@ -54,13 +56,9 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
                             name={searchId}
                             id="empleos-search-input"
                             placeholder="Buscar empleos por título o empresa"
-                            onChange={handleTextChange}
+                            onChange={handleChange}
                             onFocus={() => setFocusedField("search")}
                             onBlur={() => setFocusedField(null)}
-                            // style={{
-                            //     borderColor: focusedField === "search" ? "#4f46e5" : "#d1d5db",
-                            //     outline: focusedField === "search" ? "2px solid #4f46e5" : "none",
-                            // }}
                         />
                         {focusedField === "search" && <small className={styles.inputHint}>Busca por título de trabajo o empresa</small>}
                     </div>
@@ -96,63 +94,75 @@ export const SearchFormSection = ({ onSearch, onTextFilter }) => {
                             <option value="mobile">Móvil</option>
                         </select>
                     </div>
-                    <select
-                        name={locationSelectId}
-                        id="ubicacion-select"
-                        // onChange={handleChange}
-                        onFocus={() => setFocusedField("location")}
-                        onBlur={() => setFocusedField(null)}
-                        className={`${focusedField === "location" ? styles.inputFocused : ""} selectFiltro`}>
-                        <option value="">Todas las ubicaciones</option>
+                    <div className={styles.formGroup}>
+                        <select
+                            name={locationSelectId}
+                            id="ubicacion-select"
+                            // onChange={handleChange}
+                            onFocus={() => setFocusedField("location")}
+                            onBlur={() => setFocusedField(null)}
+                            className={`${focusedField === "location" ? styles.inputFocused : ""} selectFiltro`}>
+                            <option value="">Todas las ubicaciones</option>
 
-                        <optgroup label="España">
-                            <option value="madrid">Madrid</option>
-                            <option value="barcelona">Barcelona</option>
-                            <option value="valencia">Valencia</option>
-                        </optgroup>
+                            <optgroup label="España">
+                                <option value="madrid">Madrid</option>
+                                <option value="barcelona">Barcelona</option>
+                                <option value="valencia">Valencia</option>
+                            </optgroup>
 
-                        <optgroup label="México">
-                            <option value="ciudad de méxico">Ciudad de México</option>
-                            <option value="monterrey">Monterrey</option>
-                            <option value="guadalajara">Guadalajara</option>
-                        </optgroup>
+                            <optgroup label="México">
+                                <option value="ciudad de méxico">Ciudad de México</option>
+                                <option value="monterrey">Monterrey</option>
+                                <option value="guadalajara">Guadalajara</option>
+                            </optgroup>
 
-                        <hr />
+                            <hr />
 
-                        <option value="remoto">🌍 Remoto</option>
-                    </select>
-                    <select
-                        name={contractSelectId}
-                        id="contrato-select"
-                        // onChange={handleChange}
-                        onFocus={() => setFocusedField("contrato")}
-                        onBlur={() => setFocusedField(null)}
-                        className={`${focusedField === "contrato" ? styles.inputFocused : ""} selectFiltro`}>
-                        <option value="">Cualquier contratos</option>
-                        <option value="tiempo-completo">Tiempo completo</option>
-                        <option value="medio-tiempo">Medio tiempo</option>
-                        <option value="temporal">Temporal</option>
-                        <option value="practicas">Prácticas</option>
-                        <option value="freelance">Freelance</option>
-                    </select>
-                    <select
-                        name={experienceSelectId}
-                        id="experiencia-select"
-                        // onChange={handleChange}
-                        onFocus={() => setFocusedField("experiencia")}
-                        onBlur={() => setFocusedField(null)}
-                        className={`${focusedField === "experiencia" ? styles.inputFocused : ""} selectFiltro`}>
-                        <option value="">Todos los niveles</option>
-                        <option value="junior">Junior</option>
-                        <option value="mid">Mid-level</option>
-                        <option value="senior">Senior</option>
-                        <hr />
-                        <option value="intern">Prácticas</option>
-                        <option value="freelance">Freelance</option>
-                    </select>
+                            <option value="remoto">🌍 Remoto</option>
+                        </select>
+                    </div>
+                    <div className={styles.formGroup}>
+                        <select
+                            name={contractSelectId}
+                            id="contrato-select"
+                            // onChange={handleChange}
+                            onFocus={() => setFocusedField("contrato")}
+                            onBlur={() => setFocusedField(null)}
+                            className={`${focusedField === "contrato" ? styles.inputFocused : ""} selectFiltro`}>
+                            <option value="">Cualquier contratos</option>
+                            <option value="tiempo-completo">Tiempo completo</option>
+                            <option value="medio-tiempo">Medio tiempo</option>
+                            <option value="temporal">Temporal</option>
+                            <option value="practicas">Prácticas</option>
+                            <option value="freelance">Freelance</option>
+                        </select>
+                    </div>
+                    <div className={styles.formGroup}>
+                        <select
+                            name={experienceSelectId}
+                            id="experiencia-select"
+                            // onChange={handleChange}
+                            onFocus={() => setFocusedField("experiencia")}
+                            onBlur={() => setFocusedField(null)}
+                            className={`${focusedField === "experiencia" ? styles.inputFocused : ""} selectFiltro`}>
+                            <option value="">Todos los niveles</option>
+                            <option value="junior">Junior</option>
+                            <option value="mid">Mid-level</option>
+                            <option value="senior">Senior</option>
+                            <hr />
+                            <option value="intern">Prácticas</option>
+                            <option value="freelance">Freelance</option>
+                        </select>
+                    </div>
+
                     <button type="submit" className={styles.botonBuscar}>
                         Buscar
                     </button>
+                    {filtering && (
+                        <button type="reset" className={styles.botonLimpiar} onClick={handleReset}>
+                            Limpiar
+                        </button>
+                    )}
                 </div>
             </form>
         </section>
