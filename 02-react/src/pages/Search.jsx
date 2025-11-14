@@ -8,8 +8,6 @@ export const SearchPage = () => {
     const { jobs, totalJobs, loading, currentPage, error, handlePageChange, handleSearch, handleTextFilter } = useFilterJobs();
     const title = `Resultados: ${totalJobs} - Pagina ${currentPage} - DevJobs`;
 
-    console.log(error);
-
     return (
         <div className="search-results">
             <main>

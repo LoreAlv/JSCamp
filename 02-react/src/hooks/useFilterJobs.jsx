@@ -43,7 +43,6 @@ export const useFilterJobs = () => {
         } finally {
             setLoading(false);
         }
-        setError(true);
     };
 
     useEffect(() => {

@@ -11,6 +11,7 @@ export const HomePage = () => {
     };
     return (
         <main className="home">
+            <title>DevJobs - Tu buscador de empleo</title>
             <section>
                 <img src="./background.webp" alt="" srcSet="" width="200" />
                 <h1>Encuentra el trabajo de tus sueños</h1>

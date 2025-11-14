@@ -19,8 +19,9 @@ export const Header = () => {
                 </div>
                 <nav>
                     <Link href="/search">Empleos</Link>
-                    <Link href="">Empresas</Link>
-                    <Link href="">Salarios</Link>
+                    {/* <Link href="">Empresas</Link>
+                    <Link href="">Salarios</Link> */}
+                    <Link href="/contact">Contacto</Link>
                 </nav>
             </div>
             <div className="acciones">

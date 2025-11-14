@@ -1,6 +1,7 @@
 import { Footer } from "./components/Footer.jsx";
 import { Header } from "./components/Header.jsx";
 import { Route } from "./components/Route.jsx";
+import { ContactPage } from "./pages/Contact.jsx";
 import { HomePage } from "./pages/Home.jsx";
 // import { NotFoundPage } from "./pages/NotFoundPage.jsx";
 import { SearchPage } from "./pages/Search.jsx";
@@ -16,11 +17,11 @@ function App() {
     // }
 
     return (
-        <div className="search-results">
+        <div className="App">
             <Header />
             <Route path="/" component={HomePage} />
             <Route path="/search" component={SearchPage} />
-
+            <Route path="/contact" component={ContactPage} />
             <Footer />
         </div>
     );
